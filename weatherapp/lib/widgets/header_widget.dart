@@ -17,8 +17,9 @@ class HeaderWidget extends StatefulWidget {
 }
 
 class _HeaderWidgetState extends State<HeaderWidget> {
-  String city = '';
-  String date = DateFormat("yMMMMd").format(DateTime.now());
+
+ String city = '';
+ String date = DateFormat("yMMMMd").format(DateTime.now());
 
   @override
   void initState() {
@@ -28,6 +29,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
         globleController.getLongitude().value);
     super.initState();
   }
+
+ 
+
 
   getAdress(lat, lon) async {
     List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
@@ -48,7 +52,8 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           child: Text(
             city,
             style: GoogleFonts.poppins(
-              fontSize: 30,
+              fontSize: 40,
+              // color:Colors.white,
               fontWeight: FontWeight.w600,
               height: 2,
             ),
@@ -60,10 +65,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           child: Text(
             date,
             style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                height: 1.5,
-                color: Colors.grey),
+              // fontSize: 20,
+              // fontWeight: FontWeight.w00,
+              height: 1.5,
+              color:Colors.grey
+              
+            ),
           ),
         ),
       ],

@@ -1,87 +1,49 @@
-import 'clouds.dart';
-import 'coord.dart';
-import 'main.dart';
-import 'sys.dart';
-import 'weather.dart';
-import 'wind.dart';
+import 'current.dart';
+import 'daily.dart';
+import 'hourly.dart';
 
 class Weather {
-  Coord? coord;
-  List<Weather>? weather;
-  String? base;
-  Main? main;
-  int? visibility;
-  Wind? wind;
-  Clouds? clouds;
-  int? dt;
-  Sys? sys;
-  int? timezone;
-  int? id;
-  String? name;
-  int? cod;
+  double? lat;
+  double? lon;
+  String? timezone;
+  int? timezoneOffset;
+  Current? current;
+  List<Hourly>? hourly;
+  List<Daily>? daily;
 
   Weather({
-    this.coord,
-    this.weather,
-    this.base,
-    this.main,
-    this.visibility,
-    this.wind,
-    this.clouds,
-    this.dt,
-    this.sys,
+    this.lat,
+    this.lon,
     this.timezone,
-    this.id,
-    this.name,
-    this.cod,
+    this.timezoneOffset,
+    this.current,
+    this.hourly,
+    this.daily,
   });
 
-  @override
-  String toString() {
-    return 'Weather(coord: $coord, weather: $weather, base: $base, main: $main, visibility: $visibility, wind: $wind, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
-  }
-
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
-        coord: json['coord'] == null
+        lat: (json['lat'] as num?)?.toDouble(),
+        lon: (json['lon'] as num?)?.toDouble(),
+        timezone: json['timezone'] as String?,
+        timezoneOffset: json['timezone_offset'] as int?,
+        current: json['current'] == null
             ? null
-            : Coord.fromJson(json['coord'] as Map<String, dynamic>),
-        weather: (json['weather'] as List<dynamic>?)
-            ?.map((e) => Weather.fromJson(e as Map<String, dynamic>))
+            : Current.fromJson(json['current'] as Map<String, dynamic>),
+        hourly: (json['hourly'] as List<dynamic>?)
+            ?.map((e) => Hourly.fromJson(e as Map<String, dynamic>))
             .toList(),
-        base: json['base'] as String?,
-        main: json['main'] == null
-            ? null
-            : Main.fromJson(json['main'] as Map<String, dynamic>),
-        visibility: json['visibility'] as int?,
-        wind: json['wind'] == null
-            ? null
-            : Wind.fromJson(json['wind'] as Map<String, dynamic>),
-        clouds: json['clouds'] == null
-            ? null
-            : Clouds.fromJson(json['clouds'] as Map<String, dynamic>),
-        dt: json['dt'] as int?,
-        sys: json['sys'] == null
-            ? null
-            : Sys.fromJson(json['sys'] as Map<String, dynamic>),
-        timezone: json['timezone'] as int?,
-        id: json['id'] as int?,
-        name: json['name'] as String?,
-        cod: json['cod'] as int?,
+        daily: (json['daily'] as List<dynamic>?)
+            ?.map((e) => Daily.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toJson() => {
-        'coord': coord?.toJson(),
-        'weather': weather?.map((e) => e.toJson()).toList(),
-        'base': base,
-        'main': main?.toJson(),
-        'visibility': visibility,
-        'wind': wind?.toJson(),
-        'clouds': clouds?.toJson(),
-        'dt': dt,
-        'sys': sys?.toJson(),
+        'lat': lat,
+        'lon': lon,
         'timezone': timezone,
-        'id': id,
-        'name': name,
-        'cod': cod,
+        'timezone_offset': timezoneOffset,
+        'current': current?.toJson(),
+        'hourly': hourly?.map((e) => e.toJson()).toList(),
+        'daily': daily?.map((e) => e.toJson()).toList(),
       };
 }
