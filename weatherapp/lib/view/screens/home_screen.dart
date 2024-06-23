@@ -11,28 +11,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobleController globaleController = Get.put(GlobleController(), permanent: true);
+  final GlobleController globaleController =
+      Get.put(GlobleController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-        body:  SafeArea( 
-          child: Obx(() =>  globaleController.checkLodding().isTrue ?  
-           const Center( 
-              child: CircularProgressIndicator( ),
-            ):
-            ListView( 
+      body: SafeArea(
+        child: Obx(() => globaleController.checkLodding().isTrue
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
                 scrollDirection: Axis.vertical,
-                children: [ 
-                  
+                children: [
                   HeaderWidget(),
-
-              ],
-            )
-          ),
-        ),
-        );
+                ],
+              )),
+      ),
+    );
   }
 }

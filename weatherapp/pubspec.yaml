@@ -34,7 +34,9 @@ dependencies:
   geocoding: ^3.0.0
   geolocator: ^12.0.0
   get: ^4.6.6
+  google_fonts: ^6.2.1
   http: ^1.2.1
+  intl: ^0.19.0
   slick_slides: ^0.2.2
 
 dev_dependencies:
