@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
+  fluttertoast: ^8.2.6
   geocoding: ^3.0.0
   geolocator: ^12.0.0
   get: ^4.6.6
@@ -38,6 +39,7 @@ dependencies:
   http: ^1.2.1
   intl: ^0.19.0
   lottie: ^3.1.2
+  skeletonizer: ^1.3.0
   slick_slides: ^0.2.2
 
 dev_dependencies:
