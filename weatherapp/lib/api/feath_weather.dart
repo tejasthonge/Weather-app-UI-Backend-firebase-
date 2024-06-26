@@ -5,6 +5,7 @@ import 'package:weatherapp/api/api_key.dart';
 import 'package:weatherapp/model/weather_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:weatherapp/model/weather_data_current.dart';
+import 'package:weatherapp/model/weather_data_daily.dart';
 import 'package:weatherapp/model/weather_data_hourly.dart';
 
 
@@ -25,7 +26,8 @@ class FeathchWeatherAppi{
 
     weatherData = WeatherData(
       WeatherDataCurrent.fromJson(jsonString),
-      WeatherDataHourly.fromJson(jsonString)
+      WeatherDataHourly.fromJson(jsonString),
+      WeatherDataDaily.fromJson(jsonString)
       );
     return weatherData!;
   }
@@ -33,10 +35,6 @@ class FeathchWeatherAppi{
 }
 
 String apiURL({required double lat,required double lon}){
-
-  // String apiUrl = "https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&exclude=minutely&appid=$apiKey&units=metric";
   String apiUrl = "https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&exclude=minutely&appid=$apiKey&units=metric";
-
   return apiUrl;
-  
 }

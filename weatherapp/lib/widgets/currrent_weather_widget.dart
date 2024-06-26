@@ -2,10 +2,8 @@
 
 
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weatherapp/constancd/custom_collors.dart';
 import 'package:weatherapp/model/weather_data_current.dart';
@@ -17,19 +15,14 @@ class CurrnetWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-      
-      child: Column( 
-
-        children: [
-
-          temeprerWidget(),
-          const SizedBox(height: 20,),
-          currentWeatherMoreDeatail(context: context)
-        ],
-        
-      )
+    return Column( 
+    
+      children: [
+    
+        temeprerWidget(),
+        const SizedBox(height: 20,),
+        currentWeatherMoreDeatail(context: context)
+      ],
       
     );
 
@@ -51,7 +44,7 @@ Widget temeprerWidget(){
             ),
 
            Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
+            margin:const EdgeInsets.symmetric(vertical: 20),
             width: 1,
             color: CustomColors.dividerLine,
             height: 40,
@@ -59,7 +52,7 @@ Widget temeprerWidget(){
 
             Text(
 
-              "${weatherDataCurrent.current.temp.toString().substring(0,2)}°",
+              "${weatherDataCurrent.current.temp.toString()}°",
               style: GoogleFonts.quicksand(
                 fontSize:59,
                 fontWeight:FontWeight.bold,
@@ -104,7 +97,7 @@ Widget currentWeatherMoreDeatail({required BuildContext context}){
                 
                   height: 60,
                   width: 60,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration( 
                       borderRadius: BorderRadius.circular(15),
                       color: CustomColors.cardColor,
@@ -133,7 +126,7 @@ Widget currentWeatherMoreDeatail({required BuildContext context}){
                 
                   height: 60,
                   width: 60,
-                  padding: EdgeInsets.all(10),
+                  padding:const  EdgeInsets.all(10),
                   decoration: BoxDecoration( 
                       borderRadius: BorderRadius.circular(15),
                       color: CustomColors.cardColor,
@@ -160,7 +153,7 @@ Widget currentWeatherMoreDeatail({required BuildContext context}){
                 
                   height: 60,
                   width: 60,
-                  padding: EdgeInsets.all(10),
+                  padding:const EdgeInsets.all(10),
                   decoration: BoxDecoration( 
                       borderRadius: BorderRadius.circular(15),
                       color: CustomColors.cardColor,

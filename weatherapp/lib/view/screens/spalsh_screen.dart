@@ -15,7 +15,8 @@ class _SplashScrennState extends State<SplashScrenn> {
   void initState() {
 
     super.initState();
-    Future.delayed(Duration(seconds: 3),()=>Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>const HomeScreen())));
+    // Future.delayed(const Duration(seconds: 3),()=>Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>const HomeScreen())));
+    Future.delayed(const Duration(seconds: 3),()=>Get.off(const HomeScreen()));
   }
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class _SplashScrennState extends State<SplashScrenn> {
           // color: Colors.red,
           width: double.infinity,
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.only(right: 30,bottom: 60,left: 40),
+          margin: const EdgeInsets.only(right: 30,bottom: 60,left: 40),
           child: Row( 
             mainAxisAlignment: MainAxisAlignment.end,
             children:[

@@ -1,8 +1,7 @@
-import 'dart:convert';
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,7 +47,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       children: [
         Container(
           width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin:const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             city,
             style: GoogleFonts.poppins(
@@ -61,7 +60,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
         ),
         Container(
           width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin:const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             date,
             style: GoogleFonts.poppins(

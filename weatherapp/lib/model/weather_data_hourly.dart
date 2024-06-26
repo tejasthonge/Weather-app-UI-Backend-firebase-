@@ -1,4 +1,4 @@
-import 'package:weatherapp/model/weather/rain.dart';
+
 
 
 
@@ -13,7 +13,7 @@ class WeatherDataHourly{
 
 class Hourly {
   int? dt;
-  double? temp;
+  int? temp;
 
   List<Weather>? weather;
 
@@ -28,7 +28,7 @@ class Hourly {
 
   factory Hourly.fromJson(Map<String, dynamic> json) => Hourly(
         dt: json['dt'] as int?,
-        temp: (json['temp'] as num?)?.toDouble(),
+        temp: (json['temp'] as num?)?.round(),
         weather: (json['weather'] as List<dynamic>?)
             ?.map((e) => Weather.fromJson(e as Map<String, dynamic>))
             .toList(),

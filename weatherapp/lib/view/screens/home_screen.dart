@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:weatherapp/controller/globle_controller.dart';
 import 'package:weatherapp/utils/home_screen_skeleton.dart';
 import 'package:weatherapp/widgets/currrent_weather_widget.dart';
+import 'package:weatherapp/widgets/daily_wether_widget.dart';
 import 'package:weatherapp/widgets/header_widget.dart';
 import 'package:weatherapp/widgets/hourly_weather_widget.dart';
 
@@ -60,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     CurrnetWeather(weatherDataCurrent: globaleController.getData().getCurrentWeather()),
                     const SizedBox(height: 20,),
                     HourlyWeather(weatherDataHourly: globaleController.getData().getHourlyWeather()),
-              
+                    const SizedBox(height: 20,),
+                    DailyWeather(weatherDataDaily: globaleController.getData().getDailyWeather(),)
               
               
               
